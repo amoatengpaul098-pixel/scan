@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AUTOVEX — discover, compare and list vehicles.">
+  <title>
+    AUTOVEX | Premium Automotive Marketplace
+  </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <span class="brand-mark">
+      A
+    </span>
+    AUTOVEX
+    <span class="brand-dot">
+      .
+    </span>
+  </a>
+  <nav>
+    <a class="active" href="index.html">
+      Discover
+    </a>
+    <a href="#market">
+      Buy cars
+    </a>
+    <a href="#services">
+      Services
+    </a>
+    <a href="#dealers">
+      Dealers
+    </a>
+  </nav>
+  <div class="top-actions">
+    <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+      ◐
+    </button>
+    <a class="text-link" href="login.html">
+      Log in
+    </a>
+    <a class="btn btn-small" href="register.html">
+      Create account
+    </a>
+  </div>
+</header>
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">
+      <span class="pulse">
+        
+      </span> THE AUTOMOTIVE MARKETPLACE</div>
+    <h1>Find your next<br><em>driving experience.</em></h1>
+    <p>Discover exceptional vehicles, trusted sellers and automotive services — all in one place.</p>
+    <div class="hero-actions"><a class="btn" href="#market">Explore vehicles <span>↗</span></a><a class="ghost-link" href="sell.html">List your vehicle →</a></div>
+    <div class="hero-proof"><div class="avatar-stack"><i>V</i><i>M</i><i>A</i></div><span><b>Built for every journey</b><small>Cars · Dealers · Services</small></span></div>
+  </div>
+  <div class="hero-art"><div class="hero-glow"></div><div class="hero-label">AUTOVEX SELECT <span>01 / 04</span></div>
+    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1300&q=85" alt="Premium sports car">
+    <div class="hero-caption"><span>DRIVE WHAT MOVES YOU</span><b>Discover without limits.</b></div>
+  </div>
+</section>
+<section class="search-panel" aria-label="Vehicle search">
+  <div class="search-title"><span>⌕</span><div><b>Find your vehicle</b><small>Search thousands of possibilities</small></div></div>
+  <label>MAKE OR MODEL<input id="searchInput" placeholder="e.g. Mercedes-Benz"></label>
+  <label>VEHICLE TYPE<select id="typeFilter"><option value="">All types</option><option>SUV</option><option>Saloon</option><option>Sports</option><option>Electric</option></select></label>
+  <label>PRICE RANGE<select id="priceFilter"><option value="">Any price</option><option value="30000">Under $30,000</option><option value="60000">Under $60,000</option><option value="100000">Under $100,000</option></select></label>
+  <button class="btn search-btn" id="searchBtn">Search vehicles ↗</button>
+</section>
+<section class="section" id="market">
+  <div class="section-heading"><div><div class="eyebrow">CURATED FOR YOU</div><h2>Explore vehicles</h2><p>Standout listings from across the marketplace.</p></div><a class="arrow-link" href="buy.html">View marketplace ↗</a></div>
+  <div class="filter-row"><button class="chip selected" data-filter="All">All vehicles</button><button class="chip" data-filter="SUV">SUV</button><button class="chip" data-filter="Saloon">Saloon</button><button class="chip" data-filter="Sports">Sports</button><button class="chip" data-filter="Electric">Electric</button></div>
+  <div class="vehicle-grid" id="vehicleGrid"></div>
+</section>
+<section class="feature-band" id="services"><div><div class="eyebrow">MORE THAN A MARKETPLACE</div><h2>Your automotive world,<br><em>connected.</em></h2><p>From finding a vehicle to keeping it road-ready, AUTOVEX brings the journey together.</p></div>
+  <div class="feature-cards"><article><span>⌕</span><b>Smart discovery</b><p>Search, save and compare vehicles with useful filters.</p></article><article><span>◇</span><b>Trusted profiles</b><p>Clear seller profiles and verification-ready accounts.</p></article><article><span>↗</span><b>Automotive services</b><p>Explore maintenance, parts and transport providers.</p></article></div>
+</section>
+<section class="dealer-cta" id="dealers"><div><div class="eyebrow">FOR AUTOMOTIVE BUSINESSES</div><h2>Put your inventory<br>in the spotlight.</h2><p>Build your dealer presence and connect with more potential buyers.</p></div><a class="btn btn-light" href="register.html">Create a dealer account ↗</a></section>
+</main>
+<footer><a class="brand" href="index.html"><span class="brand-mark">A</span>AUTOVEX<span class="brand-dot">.</span></a><span>© 2026 AUTOVEX. Drive your next chapter.</span><div><a href="README.md">About</a><a href="login.html">Account</a></div></footer>
+<script src="js/app.js"></script>
+</body></html>

@@ -1,0 +1,45 @@
+CREATE DATABASE IF NOT EXISTS autovex CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE autovex;
+CREATE TABLE IF NOT EXISTS users (
+ id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+ full_name VARCHAR(120) NOT NULL,
+ email VARCHAR(190) NOT NULL UNIQUE,
+ phone VARCHAR(30) NULL,
+ password_hash VARCHAR(255) NULL,
+ account_type ENUM('buyer','seller','dealer','service_provider','admin') NOT NULL DEFAULT 'buyer',
+ email_verified_at DATETIME NULL,
+ phone_verified_at DATETIME NULL,
+ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE IF NOT EXISTS listings (
+ id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+ user_id BIGINT UNSIGNED NOT NULL,
+ make VARCHAR(80) NOT NULL, model VARCHAR(100) NOT NULL,
+ vehicle_year SMALLINT UNSIGNED NOT NULL, price DECIMAL(12,2) NOT NULL,
+ vehicle_type VARCHAR(30) NOT NULL, location VARCHAR(150) NULL,
+ description TEXT NULL, image_path VARCHAR(255) NULL,
+ status ENUM('pending','active','sold','rejected') NOT NULL DEFAULT 'pending',
+ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ CONSTRAINT fk_listing_user FOREIGN KEY (user_id) REFERENCES users(id)
+);
+CREATE TABLE IF NOT EXISTS saved_vehicles (
+ user_id BIGINT UNSIGNED NOT NULL, listing_id BIGINT UNSIGNED NOT NULL,
+ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ PRIMARY KEY(user_id, listing_id),
+ FOREIGN KEY(user_id) REFERENCES users(id), FOREIGN KEY(listing_id) REFERENCES listings(id)
+);
+CREATE TABLE IF NOT EXISTS conversations (
+ id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+ listing_id BIGINT UNSIGNED NOT NULL,
+ buyer_id BIGINT UNSIGNED NOT NULL, seller_id BIGINT UNSIGNED NOT NULL,
+ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ FOREIGN KEY(listing_id) REFERENCES listings(id),
+ FOREIGN KEY(buyer_id) REFERENCES users(id), FOREIGN KEY(seller_id) REFERENCES users(id)
+);
+CREATE TABLE IF NOT EXISTS messages (
+ id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+ conversation_id BIGINT UNSIGNED NOT NULL, sender_id BIGINT UNSIGNED NOT NULL,
+ message TEXT NOT NULL, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ FOREIGN KEY(conversation_id) REFERENCES conversations(id),
+ FOREIGN KEY(sender_id) REFERENCES users(id)
+);
